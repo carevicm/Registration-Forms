@@ -23,9 +23,9 @@ const SignUpPage = () => {
   const passwordRef = useRef(null);
 
   useEffect(() => {
-    // Check if the password field has been autofilled
+  
     if (passwordRef.current && passwordRef.current.value) {
-      setShowPassword(false); // Hide the password
+      setShowPassword(false);
     }
   }, []);
 
@@ -36,12 +36,12 @@ const SignUpPage = () => {
   const onHandleSubmit = (values, actions) => {
     console.log("Form values:", values);
   
-    // Assuming you want to check if the required fields are not empty
+
     if (values.name && values.email && values.phoneNumber && values.password) {
       navigate("/homepage");
     } else {
       console.error('Error registering user: Missing required fields.');
-      // You can add more specific error handling here if needed
+    
     }
     actions.setSubmitting(false);
   };
@@ -79,7 +79,7 @@ const SignUpPage = () => {
       }
     }, 500); 
 
-    return () => clearInterval(setAriaLabelInterval); // Cleanup on component unmount
+    return () => clearInterval(setAriaLabelInterval);
   }, []);
 
   return (

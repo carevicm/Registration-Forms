@@ -1,4 +1,3 @@
-// server.js
 import express from 'express';
 import { connectToDatabase } from './src/utils/db.js';
 import User from './src/models/User.js'
@@ -23,17 +22,17 @@ app.post('/signup', async (req, res) => {
     const { email, password } = req.body;
 
     try {
-        // Check if user already exists
+       
         let user = await User.findOne({ email });
         if (user) {
             return res.status(400).json({ msg: 'User already exists' });
         }
 
-        // Hash the password
+       
         const salt = await bcrypt.genSalt(10);
         const hashedPassword = await bcrypt.hash(password, salt);
 
-        // Create a new user
+       
         user = new User({
             email,
             password: hashedPassword,
@@ -48,7 +47,7 @@ app.post('/signup', async (req, res) => {
     }
 });
 
-const PORT = 5000; // You can adjust this as needed
+const PORT = 5000; 
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 });

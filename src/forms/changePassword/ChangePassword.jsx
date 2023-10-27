@@ -71,7 +71,6 @@ function ChangePassword() {
       return;
     }
 
-    // If all conditions are met, navigate to the homepage
     setModalMessage("Password updated successfully!");
     setShowModal(true);
     setTimeout(() => {

@@ -45,7 +45,6 @@ function ForgotPassword() {
           initialValues={{ email: "" }}
           validationSchema={validationSchema}
           onSubmit={(values) => {
-            // Assuming the validationSchema checks for a valid email format
             if (values.email) {
               navigate("/changepassword");
             } else {

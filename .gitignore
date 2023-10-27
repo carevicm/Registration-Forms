@@ -11,8 +11,10 @@ node_modules
 dist
 dist-ssr
 *.local
+.firebaserc
 
 # Editor directories and files
+.firebaserc
 .vscode/*
 !.vscode/extensions.json
 .idea

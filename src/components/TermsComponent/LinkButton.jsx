@@ -1,4 +1,3 @@
-// LinkButton.jsx
 import PropTypes from "prop-types";
 
 const LinkButton = ({ onClick, label, ariaLabel }) => (

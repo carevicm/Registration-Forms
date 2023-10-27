@@ -1,9 +1,9 @@
-// src/utils/database.js
+
 import { MongoClient } from 'mongodb';
 import dotenv from 'dotenv';
 import process from 'process';
 
-// Load environment variables from .env.development
+
 dotenv.config({ path: '.env.development' });
 
 const uri = process.env.MONGODB_URI;

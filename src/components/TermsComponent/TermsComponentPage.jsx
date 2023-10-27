@@ -1,6 +1,6 @@
-// TermsComponent.jsx
+
 import PropTypes from "prop-types";
-import LinkButton from "./LinkButton"; // Adjust the path if needed
+import LinkButton from "./LinkButton";
 
 const CONTENT_KEYS = {
   TERMS: "termsAndConditions",

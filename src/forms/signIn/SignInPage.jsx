@@ -15,7 +15,6 @@ const SignInPage = () => {
   const navigate = useNavigate();
 
   const onHandleSubmit = (values, actions) => {
-    // Assuming you want to check if email and password fields are not empty
     if (values.email && values.password) {
       navigate("/homepage");
     } else {

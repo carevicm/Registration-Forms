@@ -1,17 +1,25 @@
-// src/models/User.js
+
 import mongoose from 'mongoose';
 
 const UserSchema = new mongoose.Schema({
+    fullName: {
+        type: String,
+        required: true,
+    },
     email: {
         type: String,
         required: true,
         unique: true,
     },
+    phoneNumber: {
+        type: String,
+        required: true,
+    },
     password: {
         type: String,
         required: true,
     },
-    // Add other fields as needed
+
 });
 
 export default mongoose.model('User', UserSchema);
