@@ -36,10 +36,7 @@ class ErrorBoundary extends React.Component {
   }
 }
 
-
 const AuthContext = createContext();
-
-
 
 const AuthProvider = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -47,11 +44,10 @@ const AuthProvider = ({ children }) => {
   AuthProvider.propTypes = {
     children: PropTypes.node.isRequired,
   };
-  
+
   ErrorBoundary.propTypes = {
     children: PropTypes.node.isRequired,
   };
-  
 
   return (
     <AuthContext.Provider value={{ isAuthenticated, setIsAuthenticated }}>
@@ -65,7 +61,13 @@ function App() {
     <Router>
       <ErrorBoundary>
         <AuthProvider>
-        <Suspense fallback={<div className="flex justify-center items-center h-full"><ClipLoader color="#123abc" size={50} /></div>}>
+          <Suspense
+            fallback={
+              <div className="flex justify-center items-center h-full">
+                <ClipLoader color="#123abc" size={50} />
+              </div>
+            }
+          >
             <RoutesWithTransition />
           </Suspense>
         </AuthProvider>
@@ -76,12 +78,12 @@ function App() {
 
 function RoutesWithTransition() {
   const location = useLocation();
-  const nodeRef = React.useRef(null); 
+  const nodeRef = React.useRef(null);
 
   return (
     <TransitionGroup>
       <CSSTransition
-        nodeRef={nodeRef} 
+        nodeRef={nodeRef}
         key={location.key}
         classNames="fade"
         timeout={300}

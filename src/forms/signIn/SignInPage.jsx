@@ -4,7 +4,7 @@ import FormPage from "../../components/FormComponent/FormPage";
 import { useNavigate } from "react-router-dom";
 import { ClipLoader } from "react-spinners";
 
-const LazySignInForm = React.lazy(() => import('./LazySignInForm'));
+const LazySignInForm = React.lazy(() => import("./LazySignInForm"));
 
 const SignInPage = () => {
   const [showPopup, setShowPopup] = useState(false);
@@ -49,24 +49,23 @@ const SignInPage = () => {
         popupContent={popupContent}
         onClosePopup={() => setShowPopup(false)}
       >
-      <Suspense
+        <Suspense
           fallback={
             <div className="flex justify-center items-center h-full">
               <ClipLoader color="#123abc" size={50} />
             </div>
           }
         >
-  <LazySignInForm 
-    onHandleSubmit={onHandleSubmit}
-    showPassword={showPassword}
-    togglePasswordVisibility={togglePasswordVisibility}
-    setPasswordStrength={setPasswordStrength}
-    passwordStrength={passwordStrength}
-    rememberMe={rememberMe}
-    handleCheckboxChange={handleCheckboxChange}
-  />
-</Suspense>
-
+          <LazySignInForm
+            onHandleSubmit={onHandleSubmit}
+            showPassword={showPassword}
+            togglePasswordVisibility={togglePasswordVisibility}
+            setPasswordStrength={setPasswordStrength}
+            passwordStrength={passwordStrength}
+            rememberMe={rememberMe}
+            handleCheckboxChange={handleCheckboxChange}
+          />
+        </Suspense>
       </FormPage>
     </React.Fragment>
   );

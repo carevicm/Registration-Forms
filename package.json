@@ -1,6 +1,5 @@
 {
   "name": "forms",
-  "homepage": "https://carevicm.github.io/Registration-Forms/",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -52,6 +51,13 @@
     "gh-pages": "^6.0.0",
     "postcss": "^8.4.31",
     "tailwindcss": "^3.3.3",
-    "vite": "^4.4.5"
-  }
+    "vite": "^4.4.5",
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4"
+  },
+  "main": "postcss.config.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
 }

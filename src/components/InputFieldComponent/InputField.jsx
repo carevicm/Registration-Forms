@@ -22,19 +22,19 @@ const InputField = React.forwardRef(
 
     return (
       <div className="mb-4">
-        <div className="relative mb-2">
-          <Field
-            className="w-full p-3 border rounded-3xl focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
-            type={currentType}
-            name={name}
-            placeholder={placeholder}
-            autoComplete={autoComplete}
-            onChange={onChange}
-            aria-label={placeholder}
-            innerRef={ref}
-          />
-          {name === "password" && togglePasswordVisibility && (
-            <button
+      <div className="relative mb-2">
+        <Field
+          className="w-full p-3 border rounded-3xl focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+          type={currentType}
+          name={name}
+          placeholder={placeholder}
+          autoComplete={autoComplete}
+          onChange={onChange}
+          aria-label={placeholder}
+          innerRef={ref}
+        />
+        {name === "password" && togglePasswordVisibility && (
+          <button
               type="button"
               onClick={togglePasswordVisibility}
               className="absolute top-1/2 right-3 transform -translate-y-1/2 px-3 flex items-center focus:outline-none"
@@ -44,7 +44,11 @@ const InputField = React.forwardRef(
             </button>
           )}
         </div>
-        <ErrorMessage name={name} component="div" className="text-[#750B0B] font-medium" />
+        <ErrorMessage
+          name={name}
+          component="div"
+          className="text-[#750B0B] font-medium"
+        />
         {name === "password" && passwordStrength && (
           <PasswordStrength strength={passwordStrength} />
         )}

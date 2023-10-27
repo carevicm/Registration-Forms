@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { useState } from 'react';
+import { useState } from "react";
 import ReactDOM from "react-dom";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { FaCheck, FaTimes } from "react-icons/fa";
@@ -51,34 +51,34 @@ function ChangePassword() {
           <div className="w-10"></div>
         </div>
         <Formik
-  initialValues={{
-    password: "",
-    confirmPassword: "",
-  }}
-  validationSchema={validationSchema}
-  onSubmit={(values) => {
-    if (values.password !== values.confirmPassword) {
-      setModalMessage("Passwords do not match.");
-      setShowModal(true);
-      return;
-    }
+          initialValues={{
+            password: "",
+            confirmPassword: "",
+          }}
+          validationSchema={validationSchema}
+          onSubmit={(values) => {
+            if (values.password !== values.confirmPassword) {
+              setModalMessage("Passwords do not match.");
+              setShowModal(true);
+              return;
+            }
 
-    if (passwordStrengthState === STRENGTH_VALUES.WEAK) {
-      setModalMessage(
-        "Password is not strong enough. Please follow the guidelines."
-      );
-      setShowModal(true);
-      return;
-    }
+            if (passwordStrengthState === STRENGTH_VALUES.WEAK) {
+              setModalMessage(
+                "Password is not strong enough. Please follow the guidelines."
+              );
+              setShowModal(true);
+              return;
+            }
 
-    setModalMessage("Password updated successfully!");
-    setShowModal(true);
-    setTimeout(() => {
-      navigate("/homepage");
-    }, 2000);
-  }}
->
-        {({ errors, setFieldValue }) => (
+            setModalMessage("Password updated successfully!");
+            setShowModal(true);
+            setTimeout(() => {
+              navigate("/homepage");
+            }, 2000);
+          }}
+        >
+          {({ errors, setFieldValue }) => (
             <Form className="flex flex-col w-full items-center">
               <input type="hidden" name="email" value="user@example.com" />
 

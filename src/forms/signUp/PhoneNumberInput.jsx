@@ -1,7 +1,6 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
 
-
 const PhoneNumberInput = ({ onChange }) => {
   const [countryCode, setCountryCode] = useState("+1");
   const [phoneNumber, setPhoneNumber] = useState("");
@@ -18,43 +17,42 @@ const PhoneNumberInput = ({ onChange }) => {
   };
 
   return (
-    <div className="selected-flag"
-    tabIndex="0"
-    role="button"
-    aria-haspopup="listbox"
-    aria-label="Toggle country code dropdown"
-  >
-    <label id="countryLabel" htmlFor="countryCode">Country Code:</label>
-    <select 
-      id="countryCode"
+    <div
+      className="selected-flag"
       tabIndex="0"
+      role="button"
       aria-haspopup="listbox"
-      aria-label="Select Country"
-      className="w-full p-2 border rounded-md mb-2 select-flag"
-      value={countryCode}
-      onChange={(e) => setCountryCode(e.target.value)
-      }
-      
+      aria-label="Toggle country code dropdown"
     >
-      <option value="+1">+1</option>
-    </select>
-  
-    <label htmlFor="phoneNumber">Phone Number:</label>
-    <input
-      id="phoneNumber"
-      className="w-full p-2 border rounded-md"
-      aria-label="Enter Phone Number"
-      value={`${countryCode} (${phoneNumber.slice(0, 3)}) ${phoneNumber.slice(
-        3,
-        6
-      )}-${phoneNumber.slice(6, 10)}`}
-      onChange={handlePhoneChange}
-      placeholder={`${countryCode} (XXX) XXX-XXXX`}
-    />
-   
-  </div>
-  
-);
+      <label id="countryLabel" htmlFor="countryCode">
+        Country Code:
+      </label>
+      <select
+        id="countryCode"
+        tabIndex="0"
+        aria-haspopup="listbox"
+        aria-label="Select Country"
+        className="w-full p-2 border rounded-md mb-2 select-flag"
+        value={countryCode}
+        onChange={(e) => setCountryCode(e.target.value)}
+      >
+        <option value="+1">+1</option>
+      </select>
+
+      <label htmlFor="phoneNumber">Phone Number:</label>
+      <input
+        id="phoneNumber"
+        className="w-full p-2 border rounded-md"
+        aria-label="Enter Phone Number"
+        value={`${countryCode} (${phoneNumber.slice(0, 3)}) ${phoneNumber.slice(
+          3,
+          6
+        )}-${phoneNumber.slice(6, 10)}`}
+        onChange={handlePhoneChange}
+        placeholder={`${countryCode} (XXX) XXX-XXXX`}
+      />
+    </div>
+  );
 };
 
 PhoneNumberInput.propTypes = {

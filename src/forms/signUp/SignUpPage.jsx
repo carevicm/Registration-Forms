@@ -4,10 +4,9 @@ import { useNavigate } from "react-router-dom";
 import "react-phone-input-2/lib/style.css";
 import { ClipLoader } from "react-spinners";
 
-
 import FormPage from "../../components/FormComponent/FormPage";
 
-const LazySignUpForm = React.lazy(() => import('./LazySignUpForm'));
+const LazySignUpForm = React.lazy(() => import("./LazySignUpForm"));
 
 const SignUpPage = () => {
   const [showPopup, setShowPopup] = useState(false);
@@ -16,14 +15,11 @@ const SignUpPage = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [phoneNumber, setPhoneNumber] = useState("");
   const [rememberMe, setRememberMe] = useState(false);
-  
-
 
   const navigate = useNavigate();
   const passwordRef = useRef(null);
 
   useEffect(() => {
-  
     if (passwordRef.current && passwordRef.current.value) {
       setShowPassword(false);
     }
@@ -35,18 +31,13 @@ const SignUpPage = () => {
 
   const onHandleSubmit = (values, actions) => {
     console.log("Form values:", values);
-  
-
     if (values.name && values.email && values.phoneNumber && values.password) {
       navigate("/homepage");
     } else {
-      console.error('Error registering user: Missing required fields.');
-    
+      console.error("Error registering user: Missing required fields.");
     }
     actions.setSubmitting(false);
   };
-  
-  
 
   const handleCheckboxChange = (event) => {
     setRememberMe(event.target.checked);
@@ -73,13 +64,33 @@ const SignUpPage = () => {
 
   useEffect(() => {
     const setAriaLabelInterval = setInterval(() => {
-      const selectedFlag = document.querySelector('.react-tel-input .selected-flag');
-      if (selectedFlag && !selectedFlag.getAttribute('aria-label')) {
-        selectedFlag.setAttribute('aria-label', 'Toggle country code dropdown');
+      const selectedFlag = document.querySelector(
+        ".react-tel-input .selected-flag"
+      );
+      if (selectedFlag && !selectedFlag.getAttribute("aria-label")) {
+        selectedFlag.setAttribute("aria-label", "Toggle country code dropdown");
       }
-    }, 500); 
+    }, 500);
 
     return () => clearInterval(setAriaLabelInterval);
+  }, []);
+  const updatePhoneNumber = (e) => {
+    const numericPhone = e.target.value.replace(/\D+/g, "");
+    setPhoneNumber(numericPhone);
+  };
+
+  useEffect(() => {
+    const phoneInput = document.querySelector(
+      'input[name="phoneNumberUniqueName"]'
+    );
+    if (phoneInput) {
+      phoneInput.addEventListener("input", updatePhoneNumber);
+    }
+    return () => {
+      if (phoneInput) {
+        phoneInput.removeEventListener("input", updatePhoneNumber);
+      }
+    };
   }, []);
 
   return (
@@ -91,8 +102,14 @@ const SignUpPage = () => {
       popupContent={popupContent}
       onClosePopup={() => setShowPopup(false)}
     >
-       <Suspense fallback={<div className="flex justify-center items-center h-full"><ClipLoader color="#123abc" size={50} /></div>}>
-      <LazySignUpForm  
+      <Suspense
+        fallback={
+          <div className="flex justify-center items-center h-full">
+            <ClipLoader color="#123abc" size={50} />
+          </div>
+        }
+      >
+        <LazySignUpForm
           onHandleSubmit={onHandleSubmit}
           phoneNumber={phoneNumber}
           setPhoneNumber={setPhoneNumber}

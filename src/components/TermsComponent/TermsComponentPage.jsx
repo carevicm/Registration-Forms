@@ -1,4 +1,3 @@
-
 import PropTypes from "prop-types";
 import LinkButton from "./LinkButton";
 
@@ -7,18 +6,15 @@ const CONTENT_KEYS = {
   PRIVACY: "privacyPolicy",
 };
 
-const TermsComponent = ({ handlePopupClick, pageType }) => {
-  return (
-    <p className="mt-4 text-sm text-center font-semibold text-[#38383E]">
-    By clicking &quot;{pageType === "signup" ? "Sign Up" : "Sign In"}&quot;
-    button, I expressly agree to the{" "}
+const TermsComponent = ({ handlePopupClick, pageType }) => (
+  <p className="mt-4 text-xs sm:text-sm text-center font-semibold text-[#38383E]">
+    By clicking &quot;{pageType === "signup" ? "Sign Up" : "Sign In"}&quot; button, I expressly agree to the{" "}
     <LinkButton
       onClick={() => handlePopupClick(CONTENT_KEYS.TERMS)}
       label="Terms of Service"
       ariaLabel="Open Terms of Service"
     />{" "}
-    and understand that my account information will be used according to
-    Coding Solution{" "}
+    and understand that my account information will be used according to Coding Solution{" "}
     <LinkButton
       onClick={() => handlePopupClick(CONTENT_KEYS.PRIVACY)}
       label="Data Privacy"
@@ -26,8 +22,7 @@ const TermsComponent = ({ handlePopupClick, pageType }) => {
     />
     .
   </p>
-  );
-};
+);
 
 TermsComponent.propTypes = {
   handlePopupClick: PropTypes.func.isRequired,
