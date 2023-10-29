@@ -5,7 +5,10 @@ User Authentication System
 Title: Fast & Secure User Authentication System
 
 Description:
-Built on the foundation of Vite.js, React.js, and styled with Tailwind.css, this project offers a sleek, responsive, and user-friendly interface for both sign-in and sign-up processes. Backed by a robust Node.js and Express backend, it employs middleware for added security, utilizing MongoDB Atlas with Mongoose for efficient data storage and management.
+Built on the foundation of Vite.js, React.js, and styled with Tailwind.css, this project offers a sleek, responsive,
+and user-friendly interface for both sign-in and sign-up processes. 
+Backed by a robust Node.js and Express backend, it employs middleware for added security, 
+utilizing MongoDB Atlas with Mongoose for efficient data storage and management.
 
 Features:
 
@@ -21,6 +24,8 @@ Responsive Development
 Data Validation
 Security & Authentication
 Backend API Development
+
+
 Tech Skills:
 
 Vite.js
