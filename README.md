@@ -9,6 +9,7 @@ Built on the foundation of Vite.js, React.js, and styled with Tailwind.css, this
 and user-friendly interface for both sign-in and sign-up processes. 
 Backed by a robust Node.js and Express backend, it employs middleware for added security, 
 utilizing MongoDB Atlas with Mongoose for efficient data storage and management.
+The system allows users to seamlessly create accounts, delete them, or change their passwords, ensuring a comprehensive and intuitive user experience.
 
 Features:
 
