@@ -15,7 +15,6 @@ Features:
 
 Dynamic Form Loading: Implements lazy loading to enhance performance during form rendering.
 User Account Creation: Enables users to sign up using their email, phone number, and a secure password.
-Dynamic Form Loading: Implements lazy loading to enhance performance during form rendering.
 Tailored Input Experience: A dedicated phone number input component ensures consistent and structured data collection.
 Password Strength Indicator: Provides real-time feedback on password strength, guiding users to set secure passwords.
 Data Validation: Utilizes the power of Yup for comprehensive and custom validation on both client and server sides.
